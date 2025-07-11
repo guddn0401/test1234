@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>너벌보2</title>
+</head>
+<style>
+    body {
+     
+      min-height: 100vh;
+      position: relative;
+
+    }
+    
+    body::before {
+      background-image: url(/사진/기회..png);
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      opacity: 0.5;
+      z-index: -1;
+
+    }
+    
+     h1 {
+      
+      color: red;
+      padding: 20px;
+      font-size: 2em;
+      text-align: center;
+      
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .a1 {
+        text-align: center;
+        margin-top: 80px
+    }
+
+    .a2 {
+        text-align: center;
+        padding: 30px;
+        margin-left: 30px;
+        
+    }
+</style>
+<body>
+    <h1><b>너의 벌금이 보여</b></h1>
+
+    <h2 style="color: purple; font-style: oblique;">고객 정보 조회</h2>
+
+    <div class="a1">
+    <div><b>이 &nbsp; &nbsp; &nbsp; &nbsp;름 :</b>
+        <input type="text" id="aaa11" name="text">
+    </div>
+
+    <br>
+
+    <div><b>생년월일 :</b>
+        <input type="text" id="aaa22" name="text2">
+    </div>
+    </div>
+
+    <br>
+
+    <div class="a2">
+    <button id="aa1">확인</button>&nbsp; &nbsp; &nbsp; &nbsp; 
+    <button id="aa2">취소</button>
+    </div>
+
+    <script>
+        document.getElementById("aa1").addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("aaa11").value;
+        const birth = document.getElementById("aaa22").value;
+       
+    
+
+        const encodedName = encodeURIComponent(name);
+        const encodedBirth = encodeURIComponent(birth);
+
+        window.location.href = `페이지3.html?name=${encodedName}&birth=${encodedBirth}`;
+    });
+
+    
+
+    document.getElementById("aa2").addEventListener("click", (e) => {
+        e.preventDefault();
+
+        window.location.href = "페이지1.html";
+    });
+
+        
+
+    </script>
+
+    
+</body>
+</html>

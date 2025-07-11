@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>너벌보3</title>
+</head>
+<style>
+    body {
+     
+      min-height: 100vh;
+      position: relative;
+
+    }
+    
+    body::before {
+      background-image: url(/사진/기회..png);
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      opacity: 0.5;
+      z-index: -1;
+
+    }
+    
+     h1 {
+      color: red;
+      padding: 20px;
+      font-size: 2em;
+      text-align: center;
+      
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .a1 {
+        text-align: center;
+        margin-top: 80px
+    }
+
+    .a3 {
+        text-align: center;
+        padding: 30px;
+        margin-left: 30px;
+        
+    }
+
+</style>
+<body>
+    <h1><b>너의 벌금이 보여</b></h1>
+
+    <h2 id="b1" style="color: purple; font-style: oblique;">김형우님 너벌보 고객정보 확인되었습니다.</h2>
+
+    <div class="a1">
+    <div><b>이 &nbsp; &nbsp; &nbsp; &nbsp;름 :</b>
+        <input id="nameDisplay" type="text"  style="text-align: center;">
+    </div>
+
+    <br>
+
+    <div><b>생년월일 :</b>
+        <input id="birthDisplay" type="text" style="text-align: center;">
+    </div>
+
+    <br>
+
+    <div><b>종 &nbsp; &nbsp; &nbsp; &nbsp;류 :</b>
+        <input type="text" value="속도위반" style="text-align: center;">
+    </div>
+
+    <br>
+
+    <div><b>예상벌금 :</b>
+        <input type="text" value="80,000원" style="text-align: center;">
+    </div>
+    </div>
+
+    <div class="a3">
+    <button id="aa1">할인</button>&nbsp; &nbsp; &nbsp; &nbsp; 
+    <button id="aa2">납부</button>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get("name");
+    const birth = urlParams.get("birth");
+
+    document.getElementById("nameDisplay").value = name ?? "";
+    document.getElementById("birthDisplay").value = birth ?? "";
+
+    document.getElementById("b1").innerHTML = `${name ?? "고객"}님 너벌보 고객정보 확인되었습니다.`;
+    
+    document.getElementById("aa1").addEventListener("click", function () {
+        const encodedName = encodeURIComponent(name);
+        const encodedBirth = encodeURIComponent(birth);
+        window.location.href = `페이지6.html?name=${encodedName}&birth=${encodedBirth}`;
+    });
+
+    document.getElementById("aa2").addEventListener("click", function () {
+        const encodedName = encodeURIComponent(name);
+        const encodedBirth = encodeURIComponent(birth);
+        window.location.href = `페이지4.html?name=${encodedName}&birth=${encodedBirth}`;
+    });
+
+
+        
+    </script>
+ 
+    <!-- 이전 화면에서 이름 생년월일 등을 썼을때 이 창에서 이름과 생년월일이 연동되어 나오게끔 -->
+</body>
+</html>
+

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>너벌보5</title>
+</head>
+<style>
+    body {
+     
+      min-height: 100vh;
+      position: relative;
+
+    }
+    
+    body::before {
+      background-image: url(/사진/기회..png);
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      opacity: 0.5;
+      z-index: -1;
+
+    }
+    
+     h1 {
+      color: red;
+      padding: 20px;
+      font-size: 2em;
+      text-align: center;
+      
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .a1 {
+        text-align: center;
+        margin-top: 80px
+    }
+
+    .a3 {
+        text-align: center;
+        padding: 30px;
+        margin-left: 30px;
+        
+    }
+
+</style>
+<body>
+    <h1><b>너의 벌금이 보여</b></h1>
+
+    <h2 id="finalAmountText" style="color: purple; font-style: oblique;"></h2>
+
+    <br>
+    <h3 style="text-align: center;">일회용 계좌번호 안내</h3>
+    
+    <div class="a1">
+    <div><b>농 &nbsp; &nbsp; &nbsp; &nbsp;협 :</b>
+        <input type="text" value="011-017-016-019-00700" style="text-align: center;">
+    </div>
+
+    <br>
+
+    <div><b>국민은행 :</b>
+        <input type="text" value="1234-5678-9012" style="text-align: center;">
+    </div>
+
+    <br>
+
+    <div><b>신한은행 :</b>
+        <input type="text" value="10987-6543-21" style="text-align: center;">
+    </div>
+
+    <br>
+
+    <div><b>우리은행 :</b>
+        <input type="text" value="17171771-486-5915" style="text-align: center;">
+    </div>
+    </div>
+
+    <div class="a3">
+    <button id="aa1">납부</button>&nbsp; &nbsp; &nbsp; &nbsp; 
+    <button id="aa2">취소</button>
+    </div>
+
+    <script>
+        document.getElementById("aa2").addEventListener("click", function () {
+            window.location = "페이지1.html";
+        });
+
+        const $btn1 = document.getElementById('aa1')
+        $btn1.addEventListener('click',()=>{
+            alert('납부되었습니다.');
+            window.location.href='페이지1.html';
+        });
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const discount = parseInt(urlParams.get("discount") ?? "0", 10);
+        const name = urlParams.get("name")
+        const originalAmount = 80000;
+        const finalAmount = originalAmount - discount;
+       
+
+       const finalAmountText = document.getElementById("finalAmountText");
+       finalAmountText.innerHTML = `${name}님의 확정벌금은 <span>${finalAmount.toLocaleString()}원</span> 입니다.`;
+    
+
+    </script>
+
+</body>
+</html>
