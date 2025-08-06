@@ -121,3 +121,5 @@ select
      , JOB_CODE
   from employee
  where SALARY >= 2000000 and JOB_CODE = 'J7'; 
+ 
+ -- 123123
